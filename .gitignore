@@ -46,3 +46,5 @@ app.*.map.json
 /test/
 /linux/
 /ios/
+/.vscode/
+/macos/
