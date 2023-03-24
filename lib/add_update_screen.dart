@@ -10,9 +10,8 @@ class AddUpdateTask extends StatefulWidget {
   String? todoDesc;
   String? todoDT;
   bool? update;
-  AddUpdateTask({
-this.todoDT,this.todoDesc,this.todoID,this.todoTitle,this.update
-  });
+  AddUpdateTask(
+      {this.todoDT, this.todoDesc, this.todoID, this.todoTitle, this.update});
 
   @override
   State<AddUpdateTask> createState() => _AddUpdateTaskState();
@@ -39,8 +38,8 @@ class _AddUpdateTaskState extends State<AddUpdateTask> {
     final descController = TextEditingController(text: widget.todoDesc);
     String appTitle;
     if (widget.update == true) {
-   appTitle = "Update Task";
-    }else{
+      appTitle = "Update Task";
+    } else {
       appTitle = "Add Task";
     }
     return Scaffold(
@@ -124,16 +123,27 @@ class _AddUpdateTaskState extends State<AddUpdateTask> {
                     child: InkWell(
                       onTap: () {
                         if (_fromKey.currentState!.validate()) {
-                          dbHelper!.insert(TodoModel(
-                            title: titleController.text,
-                            desc: descController.text,
-                            dateandtime: DateFormat('yMd').add_jm().format(DateTime.now()).toString()
-                          ));
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Homescreen()));
+                          if (widget.update == true) {
+                            dbHelper!.update(TodoModel(
+                              id: widget.todoID,
+                              title: titleController.text,
+                              desc: descController.text,
+                            ));
+                          } else {
+                            dbHelper!.insert(TodoModel(
+                                title: titleController.text,
+                                desc: descController.text,
+                                dateandtime: DateFormat('yMd')
+                                    .add_jm()
+                                    .format(DateTime.now())
+                                    .toString()));
+                          }
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Homescreen()));
                           titleController.clear();
                           descController.clear();
-
-
                         }
                       },
                       child: Container(
@@ -143,17 +153,19 @@ class _AddUpdateTaskState extends State<AddUpdateTask> {
                         height: 55,
                         width: 120,
                         decoration: BoxDecoration(
-                          // boxShadow: [BoxShadow(
-                          //   color: Colors.black12,blurRadius: 5, spreadRadius: 1,
-                          // )]
-                        ),
-                        child: Text("Submit",
-                        style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,color: Colors.white),
+                            // boxShadow: [BoxShadow(
+                            //   color: Colors.black12,blurRadius: 5, spreadRadius: 1,
+                            // )]
+                            ),
+                        child: Text(
+                          "Submit",
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
                         ),
                       ),
-                      
                     ),
-                    
                   ),
                   Material(
                     color: Colors.red[400],
@@ -172,17 +184,19 @@ class _AddUpdateTaskState extends State<AddUpdateTask> {
                         height: 55,
                         width: 120,
                         decoration: BoxDecoration(
-                          // boxShadow: [BoxShadow(
-                          //   color: Colors.black12,blurRadius: 5, spreadRadius: 1,
-                          // )]
-                        ),
-                        child: Text("Clear",
-                        style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,color: Colors.white),
+                            // boxShadow: [BoxShadow(
+                            //   color: Colors.black12,blurRadius: 5, spreadRadius: 1,
+                            // )]
+                            ),
+                        child: Text(
+                          "Clear",
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
                         ),
                       ),
-                      
                     ),
-                    
                   )
                 ],
               ),
