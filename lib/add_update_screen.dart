@@ -11,7 +11,7 @@ class AddUpdateTask extends StatefulWidget {
   String? todoDT;
   bool? update;
   AddUpdateTask({
-this.todoDT,this.todoDesc,this.todoID,this.todoTitle
+this.todoDT,this.todoDesc,this.todoID,this.todoTitle,this.update
   });
 
   @override
@@ -37,11 +37,16 @@ class _AddUpdateTaskState extends State<AddUpdateTask> {
   Widget build(BuildContext context) {
     final titleController = TextEditingController(text: widget.todoTitle);
     final descController = TextEditingController(text: widget.todoDesc);
-    
+    String appTitle;
+    if (widget.update == true) {
+   appTitle = "Update Task";
+    }else{
+      appTitle = "Add Task";
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "ADD/UPDATE Task",
+          appTitle,
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w600,
