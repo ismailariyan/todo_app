@@ -128,6 +128,7 @@ class _AddUpdateTaskState extends State<AddUpdateTask> {
                               id: widget.todoID,
                               title: titleController.text,
                               desc: descController.text,
+                              dateandtime: widget.todoDT,
                             ));
                           } else {
                             dbHelper!.insert(TodoModel(
