@@ -139,23 +139,24 @@ class _HomescreenState extends State<Homescreen> {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                                    AddUpdateTask(
-                                      todoID: todoID,
-                                      todoDesc: todoDesc,
-                                      todoTitle: todoTitle,
-                                      todoDT: todoDT,
-                                      update: true,
-                                    ),
-                                    ));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => AddUpdateTask(
+                                            todoID: todoID,
+                                            todoDesc: todoDesc,
+                                            todoTitle: todoTitle,
+                                            todoDT: todoDT,
+                                            update: true,
+                                          ),
+                                        ));
                                   },
                                   child: Icon(
                                     Icons.edit_note,
                                     color: Colors.green,
-                                    size: 28, 
-                                    ),
+                                    size: 28,
+                                  ),
                                 ),
-
                               ],
                             ),
                           )

@@ -40,7 +40,7 @@ class DBHelper {
         await _db!.rawQuery('select * from mytodo');
     return QueryResult.map((e) => TodoModel.fromMap(e)).toList();
   }
-
+//deleting data
   Future<int> delete(int id) async {
     var dbClient = await db;
     return await dbClient!.delete('mytodo', where: 'id = ?', whereArgs: [id]);

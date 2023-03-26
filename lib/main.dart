@@ -14,14 +14,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TODO App',
       theme: ThemeData(
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black 
-        )
-      ),
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.transparent,
+              foregroundColor: Colors.black)),
       home: Homescreen(),
     );
   }
 }
-
-

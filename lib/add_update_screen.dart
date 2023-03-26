@@ -10,8 +10,7 @@ class AddUpdateTask extends StatefulWidget {
   String? todoDesc;
   String? todoDT;
   bool? update;
-  AddUpdateTask(
-      {this.todoDT, this.todoDesc, this.todoID, this.todoTitle, this.update});
+  AddUpdateTask({this.todoDT, this.todoDesc, this.todoID, this.todoTitle, this.update});
 
   @override
   State<AddUpdateTask> createState() => _AddUpdateTaskState();
